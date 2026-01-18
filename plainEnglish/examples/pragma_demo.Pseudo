@@ -1,0 +1,38 @@
+#plainEnglish: Pragma Directives Example
+# This program demonstrates English-based pragma directives.
+
+# Enable plain English checking.
+# All statements below must follow English grammar rules.
+
+set counter to 65.
+
+# Statement follows perfect English grammar and syntax.
+print counter.
+
+# Ignore grammar checking.
+# Skip validation for the next statement if needed.
+
+increment.
+
+# Resume grammar checking automatically.
+print counter.
+
+# Use strict rules.
+# All following statements must be grammatically perfect.
+
+set result to 68.
+print result.
+
+# Use lenient rules.
+# Allow flexible/shorthand syntax (default mode).
+
+increment.
+print result.
+
+# Enable debug mode.
+# Shows parsing steps and intermediate representations.
+
+print "Compilation complete".
+
+# Disable debug mode.
+# Hide compilation details from output.

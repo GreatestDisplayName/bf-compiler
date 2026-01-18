@@ -29,6 +29,52 @@ ld -o hello hello.o
 ./hello
 ```
 
+## Pragma Directives (like @tscheck)
+
+plainEnglish supports pragma directives to control compilation behavior and validation, similar to TypeScript's `@ts-check`:
+
+### @pecheck - Enable Grammar Checking
+Validates all statements follow English grammar rules.
+
+```plainenglish
+# @pecheck
+set myVariable to 10.
+print myVariable.
+```
+
+### @ignore - Skip Validation
+Allows intentional deviations from grammar rules for one line.
+
+```plainenglish
+# @ignore
+set x to 10.
+```
+
+### @strict - Enforce Strict Grammar
+Requires perfect English grammar compliance.
+
+```plainenglish
+# @strict
+print "This must be perfect English".
+increment.
+```
+
+### @lenient - Flexible Syntax (Default)
+Allows abbreviations and shorthand syntax.
+
+```plainenglish
+# @lenient
+set x to 10.
+```
+
+### @debug - Enable Debug Output
+Shows intermediate parsing and compilation steps.
+
+```plainenglish
+# @debug
+print "Debug enabled".
+```
+
 ## Core Language Concepts
 
 ### Sentence Structure

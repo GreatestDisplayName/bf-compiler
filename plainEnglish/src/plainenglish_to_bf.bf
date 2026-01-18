@@ -4,7 +4,51 @@
 :: This compiler translates English-like programming syntax into Brainfuck.
 :: plainEnglish follows standard English grammar rules.
 :: 
-:: ENGLISH GRAMMAR RULES IN plainEnglish:
+:: PRAGMA DIRECTIVES (using English statements):
+::
+:: Enable plain English checking.
+::    Validates all English grammar rules and syntax
+::    USAGE: # Enable plain English checking.
+::
+:: Ignore grammar checking.
+::    Disables grammar checking for next line
+::    USAGE: # Ignore grammar checking.
+::
+:: Use strict rules.
+::    Enforce strict grammar validation
+::    USAGE: # Use strict rules.
+::
+:: Use lenient rules.
+::    Allow flexible syntax (default mode)
+::    USAGE: # Use lenient rules.
+::
+:: Enable debug mode.
+::    Shows intermediate parsing steps
+::    USAGE: # Enable debug mode.
+::
+:: Disable debug mode.
+::    Hides compilation details
+::    USAGE: # Disable debug mode.
+::
+:: EXAMPLE USAGE:
+::
+:: # Enable plain English checking.
+:: set myVariable to 10.
+::
+:: # Ignore grammar checking.
+:: # This line can have non-standard syntax
+::
+:: # Use strict rules.
+:: print "This must be perfect English".
+::
+:: # Use lenient rules.
+:: set x to 10.
+::
+:: # Enable debug mode.
+:: increment.
+::
+
+
 ::
 :: 1. Subject-Verb Agreement
 ::    Singular subjects take singular verbs, plural take plural.
