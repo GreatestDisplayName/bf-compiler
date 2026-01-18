@@ -29,50 +29,59 @@ ld -o hello hello.o
 ./hello
 ```
 
-## Pragma Directives (like @tscheck)
+## Pragma Directives
 
-plainEnglish supports pragma directives to control compilation behavior and validation, similar to TypeScript's `@ts-check`:
+plainEnglish supports pragma directives (written as English comments) to control compilation behavior and validation:
 
-### @pecheck - Enable Grammar Checking
+### Enable Plain English Checking
 Validates all statements follow English grammar rules.
 
 ```plainenglish
-# @pecheck
+# Enable plain English checking.
 set myVariable to 10.
 print myVariable.
 ```
 
-### @ignore - Skip Validation
-Allows intentional deviations from grammar rules for one line.
+### Ignore Grammar Checking
+Skips validation for statements where perfect grammar is impractical.
 
 ```plainenglish
-# @ignore
+# Ignore grammar checking.
 set x to 10.
 ```
 
-### @strict - Enforce Strict Grammar
-Requires perfect English grammar compliance.
+### Use Strict Rules
+Enforces perfect English grammar compliance for all following statements.
 
 ```plainenglish
-# @strict
+# Use strict rules.
 print "This must be perfect English".
 increment.
 ```
 
-### @lenient - Flexible Syntax (Default)
-Allows abbreviations and shorthand syntax.
+### Use Lenient Rules
+Allows flexible and shorthand syntax (default mode).
 
 ```plainenglish
-# @lenient
+# Use lenient rules.
 set x to 10.
+increment.
 ```
 
-### @debug - Enable Debug Output
-Shows intermediate parsing and compilation steps.
+### Enable Debug Mode
+Shows intermediate compilation steps and parsing information.
 
 ```plainenglish
-# @debug
-print "Debug enabled".
+# Enable debug mode.
+print "Debug output enabled".
+```
+
+### Disable Debug Mode
+Hides compilation details (default).
+
+```plainenglish
+# Disable debug mode.
+print "Normal compilation".
 ```
 
 ## Core Language Concepts
@@ -91,6 +100,25 @@ print "Hello, World".    # English sentence structure
 set x to 10.            # Ends with period
 increment.              # Each statement is a sentence
 ```
+
+## English Grammar Rules
+
+plainEnglish enforces 12 English grammar rules to ensure code reads naturally:
+
+1. **Subject-Verb Agreement** - Commands must have proper subject agreement
+2. **Article Usage** - Proper use of "a", "an", "the" where needed
+3. **Verb Tense Consistency** - Maintain consistent tense throughout
+4. **Punctuation** - End all statements with periods
+5. **Capitalization** - Proper capitalization at start of sentences
+6. **Word Order** - Natural English word ordering (SVO)
+7. **Conjunction Usage** - Proper use of "and", "or", "but"
+8. **Preposition Placement** - Correct preposition positioning
+9. **Comparative Forms** - Proper use of "greater/less than", "equals"
+10. **Statement Clarity** - Commands must be unambiguous
+11. **Comment Syntax** - Comments must start with # and be on own line
+12. **Keyword Validity** - Only recognized English keywords allowed
+
+Enable/disable grammar checking with pragma directives (see above).
 
 ### 1. Variables
 
