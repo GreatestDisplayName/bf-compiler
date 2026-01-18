@@ -1,0 +1,4 @@
+# plainEnglish: Print "Hello, World!"
+# A simple example that demonstrates string output
+
+print "Hello, World!"
