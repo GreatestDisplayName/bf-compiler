@@ -1,5 +1,5 @@
 # Brainfuck Compiler & plainEnglish Language
-*By Truttle1*
+*By Truttle1 & GreatestDisplayName*
 
 This project contains a complete compiler toolchain:
 - A Brainfuck to x86-64 assembly compiler (written in C)
