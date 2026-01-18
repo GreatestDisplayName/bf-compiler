@@ -1,14 +1,14 @@
 # plainEnglish Example: Increment
 # Set a value and increment it, then print
 
-set x to 64
-increment
-increment
-increment
-increment
-increment
-increment
-increment
-increment
-increment
-print
+set x to 64.
+increment.
+increment.
+increment.
+increment.
+increment.
+increment.
+increment.
+increment.
+increment.
+print.

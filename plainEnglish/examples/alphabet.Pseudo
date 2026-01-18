@@ -1,9 +1,9 @@
 # plainEnglish: Print ASCII values
 # 65 = 'A', 66 = 'B', 67 = 'C'
 
-set val to 65
-print val
-increment
-print val
-increment
-print val
+set val to 65.
+print val.
+increment.
+print val.
+increment.
+print val.

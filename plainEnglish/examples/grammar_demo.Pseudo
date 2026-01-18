@@ -1,0 +1,46 @@
+# plainEnglish: English Grammar Example
+# This program demonstrates proper English grammar in plainEnglish.
+# It follows all standard English grammar rules.
+
+# Subject-Verb Agreement: Singular subject, singular verb
+# The variable is initialized.
+set myCounter to 65.
+
+# Active voice preferred over passive.
+# Active: "Increment the counter." (subject performs action)
+# Passive: "The counter is incremented." (subject receives action)
+print myCounter.
+
+# Proper use of articles and prepositions.
+# "Set a value to 10" follows English grammar.
+# "Add 5 to the counter" uses correct preposition.
+increment.
+
+# Consistent present tense in imperative statements.
+# All verbs are in imperative mood: print, set, increment, add.
+print myCounter.
+
+# Correct placement of modifiers.
+# "Increment the counter by one" (modifier near the word it modifies).
+increment.
+
+# Use of punctuation marks correctly.
+# Each statement ends with a period (.), like English sentences.
+print myCounter.
+
+# Proper capitalization: first word capitalized.
+# Comments use standard English capitalization.
+# Variable names follow camelCase convention: myCounter, myValue, etc.
+
+# Subject comes before the verb in statements.
+# "Set [subject] to [value]" follows English word order.
+set myValue to 68.
+
+# Active voice demonstrates clear action.
+print myValue.
+
+# Pronouns agree with antecedents.
+# "The variable and its value" - pronoun "its" agrees with "variable".
+increment.
+
+print myValue.

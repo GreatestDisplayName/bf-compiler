@@ -1,6 +1,6 @@
 # plainEnglish: Add numbers
 # Demonstrates variable assignment and addition
 
-set result to 10
-add 20
-print
+set result to 10.
+add 20.
+print.

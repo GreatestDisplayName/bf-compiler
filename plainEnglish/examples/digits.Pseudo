@@ -1,22 +1,22 @@
 # plainEnglish: Print numbers 48-57 (ASCII '0'-'9')
 
-set num to 48
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
-increment
-print num
+set num to 48.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.
+increment.
+print num.

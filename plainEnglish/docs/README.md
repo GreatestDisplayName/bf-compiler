@@ -1,185 +1,239 @@
 # plainEnglish - A Full Programming Language in Plain English
 
-plainEnglish is a complete, Turing-complete programming language that reads and writes like English prose. It compiles to Brainfuck, which then compiles to machine code.
+plainEnglish is a complete, Turing-complete programming language that reads and writes like natural English prose. Programs look like instructions you would give to a human, making programming accessible to everyone.
 
-## Language Features
+It compiles to Brainfuck, which then compiles to x86-64 assembly and machine code, enabling pure computational thinking without syntax noise.
 
-### 1. Variables and Assignment
-```
-set counter to 0
-set name to "Hello"
-assign value to 42
-let x be 10
-```
+## Philosophy
 
-### 2. Arithmetic Operations
-```
-increment counter
-decrement counter
-add 5 to x
-subtract 3 from y
-multiply x by 2
-divide y by 2
-```
+plainEnglish removes programming language syntax and replaces it with clear English statements. Instead of cryptic symbols, you write commands that are immediately understandable:
 
-### 3. Input and Output
-```
+- `print "Hello"` instead of `printf("Hello");`
+- `set x to 10` instead of `x = 10;`
+- `increment x` instead of `x++;`
+
+## Quick Start
+
+### Your First Program
+
+```plainenglish
 print "Hello, World!"
-print counter
-display "The value is " followed by x
-read input into variable
-input number
 ```
 
-### 4. Conditionals
-```
-if x equals 5 then
-    print "x is 5"
-end
-
-if x is greater than 10 then
-    increment counter
-else
-    decrement counter
-end
+Save as `hello.Pseudo` and run:
+```bash
+./bin/plainenglish_to_bf hello.Pseudo > hello.bf
+../bf-compiler/bf hello.bf hello.asm
+nasm -f elf64 hello.asm -o hello.o
+ld -o hello hello.o
+./hello
 ```
 
-### 5. Loops
-```
-repeat 10 times
-    print "Hello"
-end
+## Core Language Concepts
 
-while x is greater than 0
-    print x
-    decrement x
-end
+### Sentence Structure
 
-for each item in range 1 to 10
-    print item
-end
-```
+plainEnglish follows English grammar rules:
+- **Statements end with a period (.)** - Just like English sentences
+- **Case insensitive** - `Print`, `PRINT`, `print` are all valid
+- **Whitespace flexible** - Extra spaces are ignored
+- **Comments with #** - Everything after # is ignored
 
-### 6. Functions and Procedures
-```
-define greet takes name
-    print "Hello, "
-    print name
-end
-
-call greet with "Alice"
+Example:
+```plainenglish
+print "Hello, World".    # English sentence structure
+set x to 10.            # Ends with period
+increment.              # Each statement is a sentence
 ```
 
-### 7. Comments
+### 1. Variables
+
+Variables store single-byte values (0-255):
+
+```plainenglish
+set counter to 0.
+set value to 42.
+let x be 100.
+assign y to 255.
 ```
+
+### 2. Output (Print)
+
+Print strings and values:
+
+```plainenglish
+print "Hello, World!".        # Prints a string
+print value.                  # Prints a variable's ASCII value
+```
+
+### 3. Arithmetic
+
+Basic arithmetic operations:
+
+```plainenglish
+increment counter.            # Add 1
+decrement counter.            # Subtract 1
+add 5.                        # Add to current value
+subtract 3.                   # Subtract from current value
+```
+
+### 4. Loops
+
+Repeat code blocks:
+
+```plainenglish
+while x is greater than 0.
+    print x.
+    decrement.
+end.
+
+repeat 10 times.
+    print "X".
+end.
+```
+
+### 5. Input
+
+Read from user:
+
+```plainenglish
+input.                        # Read a character
+read input.                   # Read a character
+```
+
+### 6. Comments
+
+```plainenglish
 # This is a comment
-# It can span multiple lines
+# Everything after # is ignored
 ```
 
-### 8. Data Types
-- **Numbers**: 0-255 (Brainfuck cell limit)
-- **Strings**: ASCII characters
-- **Boolean**: true (1) or false (0)
+## Data Model
 
-### 9. Operators
-- Comparison: `equals`, `is greater than`, `is less than`, `is not`
-- Logical: `and`, `or`, `not`
-- Arithmetic: `plus`, `minus`, `times`, `divided by`
+- **Memory**: 4096 memory cells
+- **Cell Size**: 0-255 (8-bit unsigned integer)
+- **Pointer**: Current position in memory
+- **Operations**: Move pointer, increment/decrement cell, input/output
 
-## Example Programs
+## Execution Model
 
-### Program 1: Count from 1 to 10
-```
-set counter to 0
+plainEnglish follows the Brainfuck execution model:
+- Sequential execution of statements
+- Loops execute while current cell is non-zero
+- All variables stored in memory cells
+- No heap or stack (everything is in linear memory)
 
-while counter is less than 10
-    increment counter
-    print counter
-end
-```
+## Supported Keywords
 
-### Program 2: Print "Hello, World!"
-```
-print "Hello, World!"
-```
-
-### Program 3: Sum of numbers
-```
-set total to 0
-set i to 1
-
-while i is less than or equal to 5
-    add i to total
-    increment i
-end
-
-print "The sum is "
-print total
-```
-
-### Program 4: Function Definition
-```
-define fibonacci takes n
-    if n is less than or equal to 1 then
-        return n
-    end
-    
-    return fibonacci of n minus 1 plus fibonacci of n minus 2
-end
-
-print fibonacci of 10
-```
-
-## Syntax Rules
-
-1. **Statements end naturally** - No semicolons required
-2. **Blocks are explicit** - Use `end` to close blocks
-3. **Variables are created on first use** - No separate declaration needed
-4. **Case insensitive** - `Print`, `PRINT`, and `print` are equivalent
-5. **Readable operators** - Use English words instead of symbols
-6. **Natural grammar** - Follows English word order
-
-## Compilation Process
-
-```
-plainEnglish (.Pseudo) 
-    ↓
-plainenglish_to_bf compiler (written in Brainfuck)
-    ↓
-Brainfuck (.bf)
-    ↓
-bf compiler (written in C)
-    ↓
-x86-64 Assembly (.asm)
-    ↓
-NASM Assembler
-    ↓
-Machine Code (executable)
-```
-
-## Implementation Notes
-
-- The compiler tokenizes English keywords and converts them to Brainfuck operations
-- Complex features like functions are translated to loops and labels
-- String literals are converted to ASCII values
-- Variables are mapped to memory cells
-- The language is fully Turing-complete
+| Category | Keywords |
+|----------|----------|
+| **Variables** | `set`, `assign`, `let` |
+| **Operators** | `to`, `is`, `equals`, `than`, `greater`, `less` |
+| **Arithmetic** | `increment`, `decrement`, `add`, `subtract` |
+| **I/O** | `print`, `input`, `read`, `display` |
+| **Control** | `while`, `loop`, `repeat`, `end`, `times` |
+| **Comments** | `#` |
 
 ## Limitations
 
-- Variables are single bytes (0-255)
-- Memory is limited to 4096 cells
-- Recursion depth depends on available memory
-- No floating-point arithmetic (only integers)
+plainEnglish inherits Brainfuck's limitations:
 
-## Future Extensions
+- **No recursion**: No function calls with return addresses
+- **No arrays/lists**: Everything is individual bytes
+- **Limited arithmetic**: Only increment/decrement (multiply via loops)
+- **No strings as variables**: Strings only in print statements
+- **Small memory**: 4096 cells total
+- **Byte-sized values**: 0-255 range only
 
-- Array/List support
-- String manipulation functions
-- File I/O operations
-- Standard library functions
-- Optimization passes
-- Better error messages
+## Example Programs
+
+### Print Your Name
+
+```plainenglish
+print "Alice".
+```
+
+### Count and Print
+
+```plainenglish
+set n to 65.
+print n.
+increment.
+print n.
+increment.
+print n.
+```
+
+Output: `ABC`
+
+### Print a Sequence
+
+```plainenglish
+set counter to 48.
+repeat 10 times.
+    print counter.
+    increment.
+end.
+```
+
+Output: `0123456789`
+
+## How plainEnglish Works
+
+```
+plainEnglish Source Code (.Pseudo)
+            ↓
+plainenglish_to_bf Compiler (written in Brainfuck)
+            ↓
+Brainfuck Code (.bf)
+            ↓
+bf Compiler (written in C)
+            ↓
+x86-64 Assembly Code (.asm)
+            ↓
+NASM Assembler
+            ↓
+Object File (.o)
+            ↓
+GNU Linker (ld)
+            ↓
+Executable Binary
+            ↓
+Run on Linux x86-64
+```
+
+## Getting Started
+
+1. **Write** a `.Pseudo` file with plainEnglish code
+2. **Compile** to Brainfuck using the plainenglish_to_bf compiler
+3. **Compile** Brainfuck to assembly using the bf compiler
+4. **Assemble** with NASM
+5. **Link** with ld
+6. **Run** the executable
+
+## Design Goals
+
+- ✅ **Readability**: Programs read like English
+- ✅ **Simplicity**: No syntax rules to memorize
+- ✅ **Completeness**: Turing-complete (can compute anything)
+- ✅ **Elegance**: Remove noise, keep meaning
+- ✅ **Accessibility**: Anyone can understand the code
+
+## Future Enhancements
+
+- Better loop conditions (if/else support)
+- Variable names in output (print x value)
+- Multiple-cell variables (for numbers > 255)
+- Subroutines/procedures
+- Built-in functions (factorial, fibonacci, etc.)
+- Standard library
+
+## References
+
+- **Brainfuck**: Simple, minimal Turing-complete language
+- **Esoteric Languages**: plainEnglish continues the tradition
+- **Literate Programming**: Code that reads like prose
+- **Educational**: Ideal for teaching computational thinking
 
 plainEnglish programs use the `.Pseudo` extension.
 
